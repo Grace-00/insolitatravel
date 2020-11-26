@@ -4,7 +4,6 @@ import { ContextAPI } from "./context/ContextAPI";
 import { useEffect, useState } from "react";
 
 function App() {
-
   const [results, setResults] = useState({});
 
   useEffect(() => {
@@ -16,11 +15,12 @@ function App() {
     })();
   }, []);
 
-
   return (
     <ContextAPI.Provider value={results}>
       <div className="App">
+        <p>ciao 2</p>
         <Header />
+        <p>ciao</p>
       </div>
     </ContextAPI.Provider>
   );
