@@ -1,6 +1,7 @@
 import "./style/App.scss";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Login from "./components/Login";
 import { ContextAPI } from "./context/ContextAPI";
 import { useEffect, useState } from "react";
 
@@ -31,6 +32,7 @@ function App() {
     ) : (
         <ContextAPI.Provider value={results}>
             <div className="App">
+                {/* <Login /> */}
                 <Header />
                 <Footer />
             </div>
