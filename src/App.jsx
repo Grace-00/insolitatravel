@@ -5,16 +5,17 @@ import { ContextAPI } from "./context/ContextAPI";
 import { useEffect, useState } from "react";
 
 function App() {
-    const [results, setResults] = useState({});
+    const URL = "http://51.77.82.133:86/api/quotations/QUO_5fb3acb3a0f18";
+    const [results, setResults] = useState(false);
 
     useEffect(() => {
         void (async () => {
-            const res = await (
-                await fetch(
-                    "http://51.77.82.133:86/api/quotations/QUO_5fb3acb3a0f18"
-                )
-            ).json();
-            setResults(res.results.data);
+            try {
+                const res = await (await fetch(URL)).json();
+                setResults(res.results.data);
+            } catch (error) {
+                alert(`si e' verificato un errore: ${error}`);
+            }
         })();
     }, []);
 
