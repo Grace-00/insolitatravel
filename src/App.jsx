@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import { ContextAPI } from "./context/ContextAPI";
 import { useEffect, useState } from "react";
 import InfoSection from "./components/InfoSection";
+import InfoSectionContainer from "./components/InfoSectionContainer";
 
 
 function App() {
@@ -34,7 +35,7 @@ function App() {
         <ContextAPI.Provider value={results}>
             <div className="App">
                 <Header />
-                {/* <InfoSection/> */}
+                <InfoSectionContainer/>
                 <Footer />
             </div>
         </ContextAPI.Provider>
