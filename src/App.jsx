@@ -8,25 +8,34 @@ import InfoSection from "./components/InfoSection";
 
 function App() {
     const URL = "http://51.77.82.133:86/api/quotations/QUO_5fb3acb3a0f18";
-    const [results, setResults] = useState(false);
+    const [results, setResults] = useState({});
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         void (async () => {
             try {
                 const res = await (await fetch(URL)).json();
-                setResults(res.results.data);
+
+                if (res.results) {
+                    setResults(res.results.data);
+                    setIsLoading(false);
+                }
             } catch (error) {
                 alert(`si e' verificato un errore: ${error}`);
             }
         })();
     }, []);
-    console.log(results)
-    return (
+
+    return isLoading ? (
+        <div className="spinner-border" role="status">
+            <span className="sr-only">Loading...</span>
+        </div>
+    ) : (
         <ContextAPI.Provider value={results}>
             <div className="App">
-                {/* <Header /> */}
-                <InfoSection/>
-                {/* <Footer /> */}
+                <Header />
+                {/* <InfoSection/> */}
+                <Footer />
             </div>
         </ContextAPI.Provider>
     );
