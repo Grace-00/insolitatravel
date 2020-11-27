@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import Login from "./components/Login";
 import { ContextAPI } from "./context/ContextAPI";
 import { useEffect, useState } from "react";
+import TravelAgency from "./components/TravelAgency";
 
 function App() {
     const URL = "http://51.77.82.133:86/api/quotations/QUO_5fb3acb3a0f18";
@@ -34,6 +35,7 @@ function App() {
             <div className="App">
                 {/* <Login /> */}
                 <Header />
+                <TravelAgency />
                 <Footer />
             </div>
         </ContextAPI.Provider>
