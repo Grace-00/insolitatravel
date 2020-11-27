@@ -3,6 +3,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { ContextAPI } from "./context/ContextAPI";
 import { useEffect, useState } from "react";
+import InfoSection from "./components/InfoSection";
+
 
 function App() {
     const [results, setResults] = useState({});
@@ -17,11 +19,12 @@ function App() {
             setResults(res.results.data);
         })();
     }, []);
-
+    console.log(results)
     return (
         <ContextAPI.Provider value={results}>
             <div className="App">
                 <Header />
+                <InfoSection/>
                 <Footer />
             </div>
         </ContextAPI.Provider>
