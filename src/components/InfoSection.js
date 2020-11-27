@@ -2,6 +2,7 @@ import React from "react";
 
 function InfoSection({id, title, description}) {
   let accordionId = 'accordion' + id;
+  let accordionDataParent = '#' + accordionId;
   let headingId = 'heading' + id;
   let dataTarget = "#" + id;
 
@@ -30,7 +31,7 @@ function InfoSection({id, title, description}) {
                 id={id}
                 className="collapse show"
                 aria-labelledby={headingId}
-                data-parent="#accordionExample"
+                data-parent={accordionDataParent}
               >
                 <div className="card-body">
                   {description}
