@@ -7,15 +7,7 @@ function Header() {
     // const logoImg = resultsAPI.agency.image;
     console.log("sono nel context --->", resultsAPI);
 
-    return resultsAPI ? (
-        // <div>
-        //     {/* Vanlatum */}
-        //     <h1>{resultsAPI.customerName}</h1>
-
-        //     {/* test Tour Sicile Orientale Noto et Taormina */}
-        //     <h2>{resultsAPI.title}</h2>
-        // </div>
-
+    return (
         <header>
             <div
                 className="vh-100 container-fluid background-image hero-img"
@@ -45,10 +37,6 @@ function Header() {
                 </div>
             </div>
         </header>
-    ) : (
-        <div className="spinner-border" role="status">
-            <span className="sr-only">Loading...</span>
-        </div>
     );
 }
 
