@@ -1,0 +1,41 @@
+.footer{
+    position: bottom;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(48, 105, 230);
+    
+    text-align: center;  
+    
+    
+
+}
+.sec1{
+    display: block;
+    
+    width:50%; 
+    float: left;
+    margin-bottom:40px ;
+    margin-top: 40px;
+}
+.sec2{
+    display: block;
+    width: 50%; 
+    float: right;
+    
+}
+.image{
+    display: block;
+    margin-left: 20%;
+}
+.bottoneMarcio{
+    
+        background-color: white;
+        border: none;
+        color:  rgb(48, 105, 230);
+        padding: 12px 30px;
+        
+        font-size: 15px;      
+        margin-bottom:40px ;
+    margin-top: 40px;
+}
