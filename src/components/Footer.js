@@ -16,7 +16,7 @@ function Footer() {
                 </div>
                 </div>
                 <div className="sec2">
-                    <button className="bottoneMarcio">Downoad</button>
+                    <button className="bottoneMarcio">Download</button>
                 </div>
             </footer>
         
