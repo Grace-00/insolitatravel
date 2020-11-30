@@ -6,6 +6,9 @@ import { ContextAPI } from "./context/ContextAPI";
 import { useEffect, useState } from "react";
 import TravelAgency from "./components/TravelAgency";
 import InfoSectionContainer from "./components/InfoSectionContainer";
+import { HashRouter as Router, Route } from "react-router-dom";
+import Mappa from "./components/Mappa";
+import Card from "./components/Card";
 
 function App() {
     const URL = "http://51.77.82.133:86/api/quotations/QUO_5fb3acb3a0f18";
@@ -27,20 +30,34 @@ function App() {
         })();
     }, []);
 
-    return isLoading ? (
-        <div className="spinner-border" role="status">
-            <span className="sr-only">Loading...</span>
-        </div>
-    ) : (
-        <ContextAPI.Provider value={results}>
-            <div className="App">
-                {/* <Login /> */}
-                <Header />
-                <TravelAgency />
-                <InfoSectionContainer/>
-                <Footer />
+    function Home() {
+        return isLoading ? (
+            <div className="spinner-border" role="status">
+                <span className="sr-only">Loading...</span>
             </div>
-        </ContextAPI.Provider>
+        ) : (
+            <ContextAPI.Provider value={results}>
+                <div className="Home App">
+                    <Header />
+                    <Mappa />
+                    <Card />
+                    <TravelAgency />
+                    <InfoSectionContainer />
+                    <Footer />
+                </div>
+            </ContextAPI.Provider>
+        );
+    }
+
+    return (
+        <Router>
+            <Route exact path="/home">
+                <Home />
+            </Route>
+            <Route exact path="/">
+                <Login />
+            </Route>
+        </Router>
     );
 }
 
