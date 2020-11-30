@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Login() {
 
@@ -32,6 +33,7 @@ function Login() {
               <input value={username} type="text" placeholder="Username" name="username" onChange={onChange} />
               <input value={password} type="password" placeholder="Password" name="password" onChange={onChange} />
               <input type="submit"/>
+              <Link to="/home">Home</Link>
             </form>
           </div>
         </div>

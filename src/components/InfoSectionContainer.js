@@ -6,8 +6,24 @@ function InfoSectionContainer() {
   const resultsAPI = useContext(ContextAPI);
   let totalPrice = 0;
 
+  // const partecipants = resultsAPI.partecipants
+  // const obj = {}
+
+  // partecipants.map( partecipant => {
+  //   if(partecipant.type in obj) {
+  //     obj[partecipant.type] += 1
+  //   } else {
+  //     obj[partecipant.type] = 1
+  //   }
+  // })
+
   const tariffeBody = (
     <div>
+        {/* {
+          Object.keys(obj).map( key => {
+            return (<p>{key} {obj[key]}</p>)
+          })
+        } */}
       <table className="w-100">
         <tbody>
           {/* Map dei partecipanti*/}
