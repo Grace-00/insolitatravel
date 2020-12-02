@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import AuthApi from "./AuthApi";
 import Cookies from 'js-cookie';
 
@@ -51,8 +51,8 @@ function Login() {
                                 onChange={onChange}
                             />
                             <button onClick={handleOnClick}>Login</button>
-                            <input type="submit" />
-                            <Link to="/home">Home</Link>
+                            {/* <input type="submit" /> */}
+                            {/* <Link to="/home">Home</Link> */}
                         </form>
                     </div>
                 </div>

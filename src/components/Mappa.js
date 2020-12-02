@@ -29,15 +29,13 @@ function Mappa() {
     let partecipantsArr = [];
 
     for (const [key, value] of Object.entries(groupedPeople)) {
-        console.log(`${key}: ${value.length}`);
+        // console.log(`${key}: ${value.length}`);
         const myPartecipant = {
             type: key,
             counter: value.length,
         };
         partecipantsArr.push(myPartecipant);
     }
-
-    console.log(partecipantsArr);
 
     const myPlaces = [];
     const myCoords = [];
@@ -65,7 +63,10 @@ function Mappa() {
                                         {/* map per settare i 3 marker */}
                                         {myCoords.map((coord) => {
                                             return (
-                                                <Marker position={coord}>
+                                                <Marker
+                                                    key={Math.random()}
+                                                    position={coord}
+                                                >
                                                     <Popup>
                                                         A pretty CSS3 popup.
                                                         <br />
@@ -85,7 +86,11 @@ function Mappa() {
                             <p className="card-text rob text-black small-text">
                                 {/* map per settare i breadcrumbs dei luoghi */}
                                 {myPlaces.map((place) => {
-                                    return <span>{place} &gt; </span>;
+                                    return (
+                                        <span key={Math.random()}>
+                                            {place} &gt;{" "}
+                                        </span>
+                                    );
                                 })}
                             </p>
 
@@ -101,7 +106,10 @@ function Mappa() {
                             <div className="d-sm-flex align-items-sm-center">
                                 {partecipantsArr.map((partecipant) => {
                                     return (
-                                        <p className="body-section rob text-grey">
+                                        <p
+                                            className="body-section rob text-grey"
+                                            key={Math.random()}
+                                        >
                                             <i className="fas fa-long-arrow-alt-right text-yellow"></i>
                                             {partecipant.counter}{" "}
                                             {/* {partecipant.type} &nbsp; */}

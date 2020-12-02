@@ -1,0 +1,19 @@
+.open-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    color: #0063c9;
+
+    i {
+        color: #9ba7af;
+    }
+}
+
+.card-border {
+    border-radius: 10px !important;
+}
+
+.table td {
+    border-top: 1px solid rgba(35, 31, 32, 0.1);
+}

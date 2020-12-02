@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { ContextAPI } from "../context/ContextAPI";
 
 //! importo momentJS
@@ -13,23 +13,43 @@ function Card() {
     //prendo tutte le righe
     const rows = resultsAPI.rows;
 
-    const places = []
+    const places = [];
 
     // 0: (3) ["SIRACUSA", {…}, {…}]
     // 1: (2) ["vendicari", {…}]
     // 2: (4) ["SIRACUSA", {…}, {…}, {…}]
     // 3: (2) ["Catania", {…}]
 
-    rows.forEach(row => {
-        let lastArrayElement = places.length - 1
-        
-        if(places.length > 0 && places[lastArrayElement][0].places[0].name === row.places[0].name) {
+    // aggiornato
+    // rows.forEach((row) => {
+    //     let lastArrayElement = places.length - 1;
+    //     if (
+    //         places.length > 0 &&
+    //         places[lastArrayElement][0] === row.places[0].name
+    //     ) {
+    //         // aggiungo all'array di quella localita' la row contenente i dati della seconda o successiva giornata
+    //         places[lastArrayElement].push(row);
+    //     } else {
+    //         // altrimenti siamo in una nuova localita' rispetto al giorno prima
+    //         // e creo un nuovo array per la nuova localita' e lo inserisco alla fine
+    //         places.push([row.places[0].name, row]);
+    //     }
+    // });
+
+    // aggiornato 2
+    rows.forEach((row) => {
+        let lastArrayElement = places.length - 1;
+
+        if (
+            places.length > 0 &&
+            places[lastArrayElement][0].places[0].name === row.places[0].name
+        ) {
             // aggiungo all'array di quella localita' la row contenente i dati della seconda o successiva giornata
-            places[lastArrayElement].push(row)
+            places[lastArrayElement].push(row);
         } else {
             // altrimenti siamo in una nuova localita' rispetto al giorno prima
             // e creo un nuovo array per la nuova localita' e lo inserisco alla fine
-            places.push([row])
+            places.push([row]);
         }
     });
 
@@ -37,24 +57,22 @@ function Card() {
 
     return (
         <div>
-            {
-                places.map( (place) => {
-                    return (
-                        <div className="card">
-                            <h1>{place[0].places[0].name}</h1>
-                            
-                            {place.map( (date) => {
-                                return (
-                                    <h2>{date.places[0].name}</h2>
-                                )
-                            })
-                            }
+            {places.map((place) => {
+                return (
+                    <div key={Math.random()}>
+                        <span>{place[0].places[0].name}</span>
+                        <span>
+                            {place.map((singlePlace) => {
+                                return `${moment(singlePlace.dayDate).format(
+                                    "DD"
+                                )} `;
+                            })}
+                        </span>
 
-                        </div>
-                    )
-                })
-            }
-            
+                        <span>{moment(place[0].dayDate).format("MMMM")}</span>
+                    </div>
+                );
+            })}
         </div>
     );
 }
