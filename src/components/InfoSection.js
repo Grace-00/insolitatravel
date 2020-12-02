@@ -29,7 +29,7 @@ function InfoSection({id, title, description}) {
 
               <div
                 id={id}
-                className="collapse show"
+                className="collapse "
                 aria-labelledby={headingId}
                 data-parent={accordionDataParent}
               >

@@ -5,7 +5,12 @@
     box-sizing: border-box;
 }
 
-@import "./_login.scss" ; 
+.leaflet-container {
+    height: 400px;
+}
+
+@import "./_login.scss";
 @import "./media-queries";
 @import "./header";
-@import "./TravelAgency.scss"
+@import "./mappa";
+@import "./TravelAgency.scss";
