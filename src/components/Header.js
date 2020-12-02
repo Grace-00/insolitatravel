@@ -5,7 +5,7 @@ function Header() {
     const resultsAPI = useContext(ContextAPI);
 
     // const logoImg = resultsAPI.agency.image;
-    console.log("sono nel context --->", resultsAPI);
+    // console.log("sono nel context --->", resultsAPI);
 
     return (
         <header>

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { ContextAPI } from "../context/ContextAPI";
 
 //! importo momentJS
@@ -13,32 +13,64 @@ function Card() {
     //prendo tutte le righe
     const rows = resultsAPI.rows;
 
-    //* per comodita creo un array di oggetti con solo nome e data
-    const newArr = rows.map((row, index) => {
-        const myObj = {
-            name: row.places[0].name,
-            date: moment(row.dayDate).format("DD/MM/YYYY"),
-        };
-        return myObj;
+    const places = [];
+
+    // 0: (3) ["SIRACUSA", {…}, {…}]
+    // 1: (2) ["vendicari", {…}]
+    // 2: (4) ["SIRACUSA", {…}, {…}, {…}]
+    // 3: (2) ["Catania", {…}]
+
+    // aggiornato
+    // rows.forEach((row) => {
+    //     let lastArrayElement = places.length - 1;
+    //     if (
+    //         places.length > 0 &&
+    //         places[lastArrayElement][0] === row.places[0].name
+    //     ) {
+    //         // aggiungo all'array di quella localita' la row contenente i dati della seconda o successiva giornata
+    //         places[lastArrayElement].push(row);
+    //     } else {
+    //         // altrimenti siamo in una nuova localita' rispetto al giorno prima
+    //         // e creo un nuovo array per la nuova localita' e lo inserisco alla fine
+    //         places.push([row.places[0].name, row]);
+    //     }
+    // });
+
+    // aggiornato 2
+    rows.forEach((row) => {
+        let lastArrayElement = places.length - 1;
+
+        if (
+            places.length > 0 &&
+            places[lastArrayElement][0].places[0].name === row.places[0].name
+        ) {
+            // aggiungo all'array di quella localita' la row contenente i dati della seconda o successiva giornata
+            places[lastArrayElement].push(row);
+        } else {
+            // altrimenti siamo in una nuova localita' rispetto al giorno prima
+            // e creo un nuovo array per la nuova localita' e lo inserisco alla fine
+            places.push([row]);
+        }
     });
 
-    // 0: {name: "SIRACUSA", date: "20/11/2020"}
-    // 1: {name: "SIRACUSA", date: "21/11/2020"}
-    // 2: {name: "vendicari", date: "22/11/2020"}
-    // 3: {name: "SIRACUSA", date: "23/11/2020"}
-    // 4: {name: "SIRACUSA", date: "24/11/2020"}
-    // 5: {name: "SIRACUSA", date: "25/11/2020"}
-    // 6: {name: "Catania", date: "26/11/2020"}
+    console.log(places);
 
     return (
         <div>
-            {rows.map((row) => {
+            {places.map((place) => {
                 return (
-                    <p>
-                        <span>{row.places[0].name}</span>
-                        <span>{moment(row.dayDate).format("DD")}</span>
-                        <span>{moment(row.dayDate).format("MMMM")}</span>
-                    </p>
+                    <div key={Math.random()}>
+                        <span>{place[0].places[0].name}</span>
+                        <span>
+                            {place.map((singlePlace) => {
+                                return `${moment(singlePlace.dayDate).format(
+                                    "DD"
+                                )} `;
+                            })}
+                        </span>
+
+                        <span>{moment(place[0].dayDate).format("MMMM")}</span>
+                    </div>
                 );
             })}
         </div>

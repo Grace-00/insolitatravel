@@ -5,8 +5,41 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: #e5e5e5;
+}
+
+.card {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.title-section {
+    font-size: 25px;
+    line-height: 35px;
+}
+
+.title-day {
+    font-size: 28px;
+    line-height: 33px;
+}
+
+.text-grey {
+    color: #9ba7af;
+}
+.text-yellow {
+    color: #ffb400;
+}
+.text-black {
+    color: #595a66;
+}
+
 .leaflet-container {
     height: 400px;
+}
+
+pre {
+    white-space: pre-wrap;
+    font-size: smaller;
 }
 
 @import "./_login.scss";
@@ -14,3 +47,4 @@
 @import "./header";
 @import "./mappa";
 @import "./TravelAgency.scss";
+@import "./infoSection";
