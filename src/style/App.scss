@@ -33,6 +33,28 @@ body {
     color: #595a66;
 }
 
+.text-blue {
+    color: #0063C9
+}
+
+.btn-outline {
+    border-radius: 50px;
+    border: 1px solid;
+    padding: 5px 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.hover-section {
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+    &:hover {
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    }
+}
+
 .leaflet-container {
     height: 400px;
 }

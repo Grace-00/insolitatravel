@@ -10,21 +10,31 @@ function Accomodation({ acc }) {
   return (
     <div>
       {acc.map((accomodation, index) => {
-      let modalId = "modal" + accomodation.id
-      let modalIdTarget = "#" + modalId
-      let modalIdLongTitle = modalId + "LongTitle"
+        let modalId = "modal" + accomodation.id;
+        let modalIdTarget = "#" + modalId;
+        let modalIdLongTitle = modalId + "LongTitle";
         return (
-          <div key={Math.random()}>
+          <div className="m-4" key={Math.random()}>
             {alternativa(index)}
             {/* Image gallery component -- source .images */}
-            <div
-              className="card"
-              data-target={modalIdTarget}
-              data-toggle="modal"
-            >
+            <div className="p-4 hover-section" data-target={modalIdTarget} data-toggle="modal">
               <h3>{accomodation.name}</h3>
               <p>{accomodation.description}</p>
-              <a hfef="">Clicca qui per maggiori dettagli</a>
+              <a
+                style={{ color: "#3490dc", textDecoration: "underline" }}
+                hfef=""
+              >
+                Clicca qui per maggiori dettagli
+              </a>
+              <div className="d-flex mt-3" style={{marginLeft: "-24px"}}>
+                {accomodation.tags.map((tag) => {
+                  return (
+                    <p className="text-blue ml-4 btn-outline">
+                      {tag.name}
+                    </p>
+                  );
+                })}
+              </div>
             </div>
             <div
               className="modal"
@@ -60,47 +70,34 @@ function Accomodation({ acc }) {
                       </span>
                       {/* Image */}
                       <div className="container-img d-flex ">
-                        {
-                          accomodation.images.map( (singleImage) => {
-                            let urlImage = singleImage.image
-                            return(
-                              <div
-                                style={{
-                                  backgroundImage: "url("+ urlImage + ")", 
-                                  backgroundSize: "cover",
-                                  width: 150, 
-                                  height: 150,
-                                  padding: 10,
-                                  }}>
-
-                              </div>
-                            )
-                          })
-                        }
+                        {accomodation.images.map((singleImage) => {
+                          let urlImage = singleImage.image;
+                          return (
+                            <div
+                              style={{
+                                backgroundImage: "url(" + urlImage + ")",
+                                backgroundSize: "cover",
+                                width: 150,
+                                height: 150,
+                                padding: 10,
+                              }}
+                            ></div>
+                          );
+                        })}
                       </div>
                       {/* Descrizione */}
                       <h5>Description</h5>
-                      <p>
-                        {accomodation.description}
-                      </p>
+                      <p>{accomodation.description}</p>
                       {/* Ristorante */}
                       <h5>Ristorante</h5>
-                      <p>
-                        {accomodation.descriptionRestaurant}
-                      </p>
+                      <p>{accomodation.descriptionRestaurant}</p>
                       {/* Camere */}
                       <h5>Camere</h5>
-                      <p>
-                        {accomodation.descriptionRooms}
-                      </p>
+                      <p>{accomodation.descriptionRooms}</p>
                       {/* Servizi */}
                       <h5>Servizi</h5>
-                      <p>
-                        {accomodation.descriptionServices}
-                      </p>
-
+                      <p>{accomodation.descriptionServices}</p>
                     </div>
-                      
                   </div>
                 </div>
               </div>

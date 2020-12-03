@@ -81,7 +81,7 @@ function InfoSectionContainer() {
     );
 
     return (
-        <div className="container-fluid accordion-print">
+        <div className="accordion-print">
             <InfoSection
                 id={"idTariffe"}
                 title={"Tariffe"}
