@@ -9,7 +9,7 @@ import TravelAgency from "./components/TravelAgency";
 import InfoSectionContainer from "./components/InfoSectionContainer";
 import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
 import Mappa from "./components/Mappa";
-import Card from "./components/Card";
+import CardContainer from "./components/CardContainer";
 import AuthApi from './components/AuthApi.js';
 import Cookies from 'js-cookie';
 
@@ -53,8 +53,8 @@ function App() {
                 <div className="Home App">
                     <Header />
                     <Mappa />
-                    <Card />
                     <TravelAgency />
+                    <CardContainer/>
                     <InfoSectionContainer />
                     <Footer />
                 </div>

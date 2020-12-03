@@ -1,80 +1,78 @@
-import React, { useContext, useState } from "react";
-import { ContextAPI } from "../context/ContextAPI";
-
+import React from "react";
+import Accomodation from "./Accomodation";
+import Trasporti from "./Trasporti";
 //! importo momentJS
 import moment from "moment";
 import "moment/locale/it";
-//!_____________________
 
-function Card() {
-    // <h1>oggi e' {moment().format("dddd")}
+function Card({ place }) {
+  let id = "id" + place[0].id;
+  let accordionId = "accordion" + id;
+  let accordionDataParent = "#" + accordionId;
+  let headingId = "heading" + id;
+  let dataTarget = "#" + id;
 
-    const resultsAPI = useContext(ContextAPI);
-    //prendo tutte le righe
-    const rows = resultsAPI.rows;
+  return (
+    <div className="container-fluid accordion-print" key={Math.random()}>
+      <div className="row">
+        <div className="col-12 col-md-10 offset-md-1 pb-4">
+          <div id={accordionId} className="accordion">
+            <div className="card card-border">
+              <div className="card-header" id={headingId}>
+                <p
+                  data-toggle="collapse"
+                  data-target={dataTarget}
+                  aria-expanded="true"
+                  aria-controls={id}
+                  className="rob font-weight-bold m-0 title-section text-uppercase link text-blue collapsed open-card"
+                  style={{ color: "#5B5959" }}
+                >
+                  {place[0].places[0].name}
+                  <span>
+                    {place.map((singlePlace) => {
+                      return `${moment(singlePlace.dayDate).format("DD")} `;
+                    })}
+                  </span>
+                  <span>{moment(place[0].dayDate).format("MMMM")}</span>
 
-    const places = [];
+                  <i className="fas fa-angle-down"></i>
+                </p>
+              </div>
 
-    // 0: (3) ["SIRACUSA", {…}, {…}]
-    // 1: (2) ["vendicari", {…}]
-    // 2: (4) ["SIRACUSA", {…}, {…}, {…}]
-    // 3: (2) ["Catania", {…}]
-
-    // aggiornato
-    // rows.forEach((row) => {
-    //     let lastArrayElement = places.length - 1;
-    //     if (
-    //         places.length > 0 &&
-    //         places[lastArrayElement][0] === row.places[0].name
-    //     ) {
-    //         // aggiungo all'array di quella localita' la row contenente i dati della seconda o successiva giornata
-    //         places[lastArrayElement].push(row);
-    //     } else {
-    //         // altrimenti siamo in una nuova localita' rispetto al giorno prima
-    //         // e creo un nuovo array per la nuova localita' e lo inserisco alla fine
-    //         places.push([row.places[0].name, row]);
-    //     }
-    // });
-
-    // aggiornato 2
-    rows.forEach((row) => {
-        let lastArrayElement = places.length - 1;
-
-        if (
-            places.length > 0 &&
-            places[lastArrayElement][0].places[0].name === row.places[0].name
-        ) {
-            // aggiungo all'array di quella localita' la row contenente i dati della seconda o successiva giornata
-            places[lastArrayElement].push(row);
-        } else {
-            // altrimenti siamo in una nuova localita' rispetto al giorno prima
-            // e creo un nuovo array per la nuova localita' e lo inserisco alla fine
-            places.push([row]);
-        }
-    });
-
-    console.log(places);
-
-    return (
-        <div>
-            {places.map((place) => {
-                return (
-                    <div key={Math.random()}>
-                        <span>{place[0].places[0].name}</span>
-                        <span>
-                            {place.map((singlePlace) => {
-                                return `${moment(singlePlace.dayDate).format(
-                                    "DD"
-                                )} `;
-                            })}
-                        </span>
-
-                        <span>{moment(place[0].dayDate).format("MMMM")}</span>
-                    </div>
-                );
-            })}
+              <div
+                id={id}
+                className="collapse"
+                aria-labelledby={headingId}
+                data-parent={accordionDataParent}
+              >
+                <div className="card-body">
+                  <div className="lead">
+                    {place.map((singlePlace) => {
+                      return (
+                        // Componente timeline
+                        <div>
+                          {/* Componente Titolo + Day */}
+                          <h2 style={{ color: "goldenrod" }}>
+                            {singlePlace.days[0].name}
+                          </h2>
+                          {/* Descrizione */}
+                          <Trasporti transport={singlePlace.transports} />
+                          <Accomodation
+                            key={Math.random()}
+                            acc={singlePlace.accomodations}
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 }
 
 export default Card;
