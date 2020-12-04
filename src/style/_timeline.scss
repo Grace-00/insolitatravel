@@ -1,0 +1,52 @@
+.travelLineMain {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  padding-right: 20px;
+  height: 99%;
+}
+
+.day {
+  background-color: rgb(244,182,64);
+  border-radius: 100%;
+  width: 67px;
+  height: 67px;
+  color: white;
+  margin-bottom: 10px;
+  text-align:center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fa-map-marker-alt {
+background-color: rgb(185,218,236);
+}
+
+.fa-map-marker-alt,
+.fa-car-alt {
+padding: 10px;
+border-radius: 50%;
+margin-bottom: 5px;
+}
+
+.fa-car-alt {
+  background-color: rgb(244,182,64);
+}
+
+
+
+// .dot {
+//   // margin-left: 15px;
+// }
+
+.dot {
+  background-size: 8px;
+  background-repeat: repeat-y;
+  background-position: 1%;
+  background-image: url("../assets/circle.png");
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

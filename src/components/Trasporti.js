@@ -15,12 +15,7 @@ function Trasporti({ transport }) {
               data-target={modalIdTarget}
               data-toggle="modal"
             >
-              <p
-                className="mt-0 rob font-weight-bold"
-                style={{ fontSize: 20, lineHeight: "23px" }}
-              >
-                {transport.name}
-              </p>
+              <h3>{transport.name}</h3>
               {/* Icona macchina */}
               <div className="d-flex flex-row align-items-center">
                 <div

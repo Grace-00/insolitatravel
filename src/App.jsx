@@ -51,9 +51,12 @@ function App() {
         ) : (
             <ContextAPI.Provider value={results}>
                 <div className="Home App">
+                    {/* Navbar */}
                     <Header />
                     <Mappa />
                     <TravelAgency />
+                    <h1 id="card">Le tue tappe</h1>
+                    {/* <a href="#card"></a> */}
                     <CardContainer/>
                     <InfoSectionContainer />
                     <Footer />

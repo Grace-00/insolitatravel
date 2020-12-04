@@ -1,0 +1,43 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  margin-left: 25px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.check, .uncheck {
+   display: flex;
+   flex-direction: row;
+  //  line-height: 5px;
+   align-items: flex-end;
+   justify-content: center;   
+}
+
+.uncheck {
+   align-items: center;
+}
+
+.fa-check, .fa-times {
+   border-radius: 100%;
+}
+
+.fa-check {
+   background-color: rgb(189, 236, 213);
+   color: rgb(99, 185, 136);
+   
+}
+
+.fa-times {
+   background-color: rgb(246, 211, 218);
+   color: rgb(177, 103, 118);
+}
+
+.fa-check, .fa-times {
+   margin-right: 15px;
+   padding: 20px;
+}
+
+.uncheck {
+   margin-left: 20%;
+}

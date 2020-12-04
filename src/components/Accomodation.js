@@ -7,6 +7,17 @@ function Accomodation({ acc }) {
     }
   }
 
+  function print(titolo, description) {
+    if (description != null) {
+      return (
+        <>
+          <h5>{titolo}</h5>
+          <p>{description}</p>
+        </>
+      );
+    }
+  }
+
   return (
     <div>
       {acc.map((accomodation, index) => {
@@ -17,7 +28,11 @@ function Accomodation({ acc }) {
           <div className="m-4" key={Math.random()}>
             {alternativa(index)}
             {/* Image gallery component -- source .images */}
-            <div className="p-4 hover-section" data-target={modalIdTarget} data-toggle="modal">
+            <div
+              className="p-4 hover-section"
+              data-target={modalIdTarget}
+              data-toggle="modal"
+            >
               <h3>{accomodation.name}</h3>
               <p>{accomodation.description}</p>
               <a
@@ -26,12 +41,10 @@ function Accomodation({ acc }) {
               >
                 Clicca qui per maggiori dettagli
               </a>
-              <div className="d-flex mt-3" style={{marginLeft: "-24px"}}>
+              <div className="d-flex mt-3" style={{ marginLeft: "-24px" }}>
                 {accomodation.tags.map((tag) => {
                   return (
-                    <p className="text-blue ml-4 btn-outline">
-                      {tag.name}
-                    </p>
+                    <p className="text-blue ml-4 btn-outline">{tag.name}</p>
                   );
                 })}
               </div>
@@ -85,18 +98,10 @@ function Accomodation({ acc }) {
                           );
                         })}
                       </div>
-                      {/* Descrizione */}
-                      <h5>Description</h5>
-                      <p>{accomodation.description}</p>
-                      {/* Ristorante */}
-                      <h5>Ristorante</h5>
-                      <p>{accomodation.descriptionRestaurant}</p>
-                      {/* Camere */}
-                      <h5>Camere</h5>
-                      <p>{accomodation.descriptionRooms}</p>
-                      {/* Servizi */}
-                      <h5>Servizi</h5>
-                      <p>{accomodation.descriptionServices}</p>
+                      {print("Description", accomodation.description)}
+                      {print("Ristorante", accomodation.descriptionRestaurant)}
+                      {print("Camere", accomodation.descriptionRooms)}
+                      {print("Servizi", accomodation.descriptionServices)}
                     </div>
                   </div>
                 </div>
