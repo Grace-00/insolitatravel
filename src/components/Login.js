@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import { Link, Redirect } from "react-router-dom";
 import AuthApi from "./AuthApi";
 import Cookies from "js-cookie";
 
@@ -8,7 +7,7 @@ function Login() {
     let [avviso, setAvviso] = useState("");
     const Auth = React.useContext(AuthApi);
     const handleOnClick = () => {
-        if (username && password != "") {
+        if (username && password !== "") {
             Auth.setAuth(true);
             Cookies.set("user", "loginTrue");
         } else {
@@ -32,39 +31,6 @@ function Login() {
     }
 
     return (
-        // <div className="container">
-        //     <div className="row">
-        //         <div className="col-md-6">
-        //             <div className="card">
-        //                 <form className="box" noValidate onSubmit={verifica}>
-        //                     <h1>Login</h1>
-        //                     <p className="text-place">
-        //                         {" "}
-        //                         Please enter your login and password!
-        //                     </p>
-        //                     <input
-        //                         value={username}
-        //                         type="text"
-        //                         placeholder="Username"
-        //                         name="username"
-        //                         onChange={onChange}
-        //                     />
-        //                     <input
-        //                         value={password}
-        //                         type="password"
-        //                         placeholder="Password"
-        //                         name="password"
-        //                         onChange={onChange}
-        //                     />
-        //                     <button onClick={handleOnClick}>Login</button>
-        //                     {/* <input type="submit" /> */}
-        //                     {/* <Link to="/home">Home</Link> */}
-        //                 </form>
-        //             </div>
-        //         </div>
-        //     </div>
-        // </div>
-
         <div className="wrapper fadeInDown">
             <div id="formContent">
                 <div className="fadeIn first"></div>
@@ -99,7 +65,7 @@ function Login() {
                 </form>
 
                 <div id="formFooter">
-                    <a className="underlineHover">{avviso}</a>
+                    <span className="underlineHover">{avviso}</span>
                 </div>
             </div>
         </div>
