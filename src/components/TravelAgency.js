@@ -5,7 +5,7 @@ function TravelAgency() {
     const resultsAPI = useContext(ContextAPI);
     // console.log(resultsAPI);
     return (
-        <div className="container-fluid">
+        <div className="container-fluid" id="consulente">
             <div className="row">
                 <div className="col-12 col-md-10 offset-md-1 pb-5">
                     <div className="card">

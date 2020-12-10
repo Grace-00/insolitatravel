@@ -55,8 +55,6 @@ function App() {
                     <Header />
                     <Mappa />
                     <TravelAgency />
-                    <h1 id="card">Le tue tappe</h1>
-                    {/* <a href="#card"></a> */}
                     <CardContainer/>
                     <InfoSectionContainer />
                     <Footer />

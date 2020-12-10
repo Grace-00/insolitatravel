@@ -1,4 +1,5 @@
 import React from "react";
+import ImageGalleryComponent from "./ImageGalleryComponent"
 
 function Accomodation({ acc }) {
   function alternativa(index) {
@@ -24,29 +25,33 @@ function Accomodation({ acc }) {
         let modalId = "modal" + accomodation.id;
         let modalIdTarget = "#" + modalId;
         let modalIdLongTitle = modalId + "LongTitle";
+        
         return (
           <div className="m-4" key={Math.random()}>
             {alternativa(index)}
-            {/* Image gallery component -- source .images */}
             <div
-              className="p-4 hover-section"
-              data-target={modalIdTarget}
-              data-toggle="modal"
+              className="p-4 d-flex hover-section align-items-center" 
             >
-              <h3>{accomodation.name}</h3>
-              <p>{accomodation.description}</p>
-              <a
-                style={{ color: "#3490dc", textDecoration: "underline" }}
-                hfef=""
-              >
-                Clicca qui per maggiori dettagli
-              </a>
-              <div className="d-flex mt-3" style={{ marginLeft: "-24px" }}>
-                {accomodation.tags.map((tag) => {
-                  return (
-                    <p className="text-blue ml-4 btn-outline">{tag.name}</p>
-                  );
-                })}
+              {/* Image Gallery Component */}
+              <ImageGalleryComponent images={accomodation.images}/>
+
+              <div className="cursor-pointer" data-target={modalIdTarget}
+              data-toggle="modal">
+                <h3>{accomodation.name}</h3>
+                <p>{accomodation.description}</p>
+                <a
+                  style={{ color: "#3490dc", textDecoration: "underline" }}
+                  hfef=""
+                >
+                  Clicca qui per maggiori dettagli
+                </a>
+                <div className="d-flex mt-3" style={{ marginLeft: "-24px" }}>
+                  {accomodation.tags.map((tag) => {
+                    return (
+                      <p className="text-blue ml-4 btn-outline">{tag.name}</p>
+                    );
+                  })}
+                </div>
               </div>
             </div>
             <div

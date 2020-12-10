@@ -54,7 +54,7 @@ function CardContainer() {
   console.log(places);
 
   return (
-    <div >
+    <div id="tappe">
       {places.map((place) => {
         return (<Card place={place} />)
       })}
