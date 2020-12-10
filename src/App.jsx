@@ -51,7 +51,6 @@ function App() {
         ) : (
             <ContextAPI.Provider value={results}>
                 <div className="Home App">
-                    {/* Navbar */}
                     <Header />
                     <Mappa />
                     <TravelAgency />

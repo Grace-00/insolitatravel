@@ -55,7 +55,7 @@ function Mappa() {
                         <div className="card-body my-map">
                             <div className="row mb-4">
                                 <div className="col-12">
-                                    <MapContainer center={position} zoom={6}>
+                                    <MapContainer center={position} zoom={6} scrollWheelZoom={false}>
                                         <TileLayer
                                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                                             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

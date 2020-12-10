@@ -2,6 +2,7 @@
 
 .my-map {
     //scritta in h5 TEST TOUR SICILE ORIENTALE NOTO ET TAORMINA
+    // background-color: red;
 
     .title {
         font-size: 36px;
@@ -30,5 +31,9 @@
     i {
         margin-right: 10px;
         font-size: smaller;
+    }
+
+    .leaflet-container {
+        height: 400px;
     }
 }
