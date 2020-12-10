@@ -5,20 +5,19 @@ import AuthApi from "./AuthApi";
 import Cookies from "js-cookie";
 
 function Login() {
-
-    let [avviso, setAvviso]= useState("");
+    let [avviso, setAvviso] = useState("");
     const Auth = React.useContext(AuthApi);
     const handleOnClick = () => {
-        if (username && password!= ""){
-        Auth.setAuth(true);
-        Cookies.set("user", "loginTrue");}
-        else{
-            setAvviso("Nome Utente o Password Mancanti")
+        if (username && password != "") {
+            Auth.setAuth(true);
+            Cookies.set("user", "loginTrue");
+        } else {
+            setAvviso("Nome Utente o Password Mancanti");
         }
     };
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    
+
     const onChange = (event) => {
         if (event.target.name === "username") {
             setUsername(event.target.value);
@@ -81,7 +80,7 @@ function Login() {
                         onChange={onChange}
                     />
                     <input
-                        type="text"
+                        type="password"
                         value={password}
                         id="password"
                         className="fadeIn third"
@@ -100,9 +99,7 @@ function Login() {
                 </form>
 
                 <div id="formFooter">
-                    <a className="underlineHover"  style={{color:"red"}}>
-                        {avviso}
-                    </a>
+                    <a className="underlineHover">{avviso}</a>
                 </div>
             </div>
         </div>
